@@ -8,6 +8,20 @@ export default function Login ({ navigation }) {
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
 
+  handleLoginUser = () => {
+    auth.signInWithEmailAndPassword(email, senha).then((user) => {
+      setUser(user);
+      alert('Login efetuado com sucesso!');
+      saveUserEmailToStorage();
+    }).catch((error) => {
+      console.log(error);
+      if (error.code === 'auth/user-not-found') {
+        alert('Conta não registrada. Cadastre-se! Por favor.');
+      } else {
+        alert('E-mail ou senha incorretos! Tente novamente, por favor.');
+      }
+    });
+  };
 
 return(
   
@@ -16,7 +30,7 @@ return(
       
      <View style={styles.header}>
 
-      <Image style={styles.imageH}  source={require('/Users/Gabriel/AgroSonicGS/assets/images/LogoAgroSonic.png')} />
+      <Image style={styles.imageH}  source={require('../assets/images/LogoAgroSonic.png')} />
 
     </View>
 
@@ -24,12 +38,14 @@ return(
 
       <TextInput style={styles.inputs}
       placeholder="Usuário"
+      placeholderTextColor="#408241"
       onChangeText={(email) => setEmail(email)}
       />
           
       <TextInput style={styles.inputs}
         secureTextEntry
         placeholder=" Senha"
+        placeholderTextColor="#408241"
         onChangeText={(senha) => setSenha(senha)}
       />
 
@@ -57,73 +73,15 @@ return(
     alignItems: 'center',
     justifyContent: 'center' },
 
-  text1: {
-    textAlign:'center',
-    color: '#408241',
-    marginBottom: '1.5vh',
-    fontWeight: "700",
-    fontSize: 18.74,
-    textShadowColor: 'rgba(0, 0, 0, 0.15)',
-    textShadowOffset: {
-      width: 0,
-      height: 4,
+    header: {
+      justifyContent: 'center',
+      marginBottom: 40
     },
-    textShadowRadius: 4, },
 
-  inputs: {
-    textAlign: 'center',
-    width: '70vw',
-    height: '6vh',
-    color: '#408241',
-    backgroundColor: '#A8EFAF',
-    margin: '1.5vh',
-    borderRadius: '5vh',
-    borderWidth: 3,
-    borderColor: '#408241',
-    fontWeight: "700",
-    fontSize: 18.74,
-    shadowColor: '#000',
-    shadowOffset: {
-      width: 0,
-      height: 4,
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 4,
-    borderRadius: 20, },
-
-  button: {
-    justifyContent: 'center',
-    marginLeft: 'auto',
-    marginTop: '2.5vh',
-    margin: '2.5vh',
-    marginRight: 'auto',
-    width: '30vw',
-    height: '6vh',
-    borderRadius: '5vh',
-    backgroundColor: '#408241',
-    shadowColor: '#000',
-    shadowOffset: {
-      width: 0,
-      height: 4,
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 4,
-    borderRadius: 20, },
-
-  buttonText: {
-    textAlign: 'center',
-    color: '#ffffff',
-    fontWeight: "700",
-    fontSize: 18.74 },
-
-      header: {
-    marginTop: '4vh',
-    marginBottom: '2vh', },
-
-   imageH:{
-     width: "16.875rem",
-     height: "6.75rem",
-    shadowColor: '#000',
+    imageH: {
+      width: 321,
+      height: 129,
+      shadowColor: '#000',
     shadowOffset: {
       width: 0,
       height: 5,
@@ -132,31 +90,83 @@ return(
     shadowRadius: 4,
    },
 
-   footer: {
-    marginTop: '2vh',
-    marginBottom: '2vh',
-    alignItems: 'center',
-    justifyContent: 'center', },
-  
-  textStart: {
+    text1:{
     textAlign:'center',
     color: '#408241',
-    marginBottom: '4vh',
+    marginBottom: 30,
     fontWeight: "700",
-    fontSize: 18.74,
+    fontSize: 17,
     textShadowColor: 'rgba(0, 0, 0, 0.15)',
     textShadowOffset: {
       width: 0,
+      height: 3,
+    },
+    textShadowRadius: 2, },
+
+    inputs:{
+      textAlign: 'left',
+      width: '70%',
+      height: 55,
+      color: '#408241',
+      backgroundColor: '#A8EFAF',
+      borderRadius: 46.85,
+      borderWidth: 3,
+      borderColor: '#408241',
+      fontWeight: "700",
+      fontSize: 12.866,
+      padding: 10,
+      marginBottom: 20,
+      shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
       height: 4,
     },
-    textShadowRadius: 4, },
+    shadowOpacity: 0.25,
+    shadowRadius: 4,
+    borderRadius: 20, },
 
-  textEnd: {
-    textAlign:'center',
-    color: '#ffffff',
-    marginBottom: 'vh',
-    fontWeight: "700",
-    fontSize: 18.74 },
+    button:{
+      justifyContent: 'center',
+      width: '30%',
+      height: 55,
+      marginBottom: 30,
+      marginTop: 15,
+      borderRadius: 46.85,
+      backgroundColor: '#408241',
+      shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 4,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 4,
+    borderRadius: 20, },
+
+    buttonText: {
+      textAlign: 'center',
+      color: '#ffffff',
+      fontWeight: "700",
+      fontSize: 16.866 },
+
+      footer: {
+        alignItems: 'center',
+        justifyContent: 'center', },
+      
+        textStart: {
+          textAlign:'center',
+          color: '#408241',
+          fontWeight: "700",
+          fontSize: 13.866,
+          textShadowColor: 'rgba(0, 0, 0, 0.15)',
+          textShadowOffset: {
+            width: 0,
+            height: 3,
+          },
+          textShadowRadius: 2, },
+
+          textEnd: {
+            textAlign:'center',
+            color: '#ffffff',
+            fontWeight: "700", },
     
-
   });
