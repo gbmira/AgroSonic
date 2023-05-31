@@ -22,10 +22,8 @@ export default function Login({ navigation }) {
 
     try {
 
-
-
-
-      const response = await client.post(`/api/auth/signin`, JSON.stringify(values), {
+      console.log(values)
+      const response = await client.post(`/api/auth/signin`, values, {
 
         headers: {
 
@@ -91,7 +89,7 @@ export default function Login({ navigation }) {
 
         <Formik
 
-          initialValues={{ email: '', password: '' }}
+          initialValues={{ login: '', senha: '' }}
 
           onSubmit={handleLogin}
 
@@ -108,9 +106,9 @@ export default function Login({ navigation }) {
 
               <TextInput
 
-                onChangeText={handleChange('email')} // Fix typo here
+                onChangeText={handleChange('login')} // Fix typo here
 
-                value={values.email}
+                value={values.login}
 
                 style={styles.inputs}
 
@@ -125,9 +123,9 @@ export default function Login({ navigation }) {
 
               <TextInput
 
-                onChangeText={handleChange('password')} // Fix typo here
+                onChangeText={handleChange('senha')} // Fix typo here
 
-                value={values.password}
+                value={values.senha}
 
                 style={styles.inputs}
 
