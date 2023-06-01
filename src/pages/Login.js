@@ -21,8 +21,8 @@ export default function Login({ navigation }) {
   const [isLoading, setIsLoading] = useState(false);
 
   const handleLogin = async (values) => {
-    setIsLoading(true);
     try {
+      setIsLoading(true);
       const response = await client.post(`/api/auth/signin`, values);
       console.log("meu response", response);
     } catch (error) {
@@ -65,6 +65,8 @@ export default function Login({ navigation }) {
                 placeholder="Senha"
                 placeholderTextColor="#408241"
               />
+
+              
 
               {!isLoading ? (
                 <TouchableOpacity style={styles.button} onPress={handleSubmit}>

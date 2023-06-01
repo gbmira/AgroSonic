@@ -4,7 +4,9 @@ import { StyleSheet, Text, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import Login from "./src/pages/Login"
-import SignUp from "./src/pages/SignUp"
+import SignUp from "./src/pages/SignUpFlux/SignUp"
+import SignUpAdress from "./src/pages/SignUpFlux/SignUpAdress"
+
 
 const Stack = createStackNavigator();
 
@@ -15,6 +17,8 @@ export default function App() {
       <Stack.Navigator initialRouteName="Login">
         <Stack.Screen name="Login" component={Login} options={{ headerShown: false, headerTransparent: true  }}/>
         <Stack.Screen name="SignUp" component={SignUp} options={{ headerShown: true, headerTransparent: true, headerTitle: 'Voltar', headerTintColor: '#408241' }}/>
+
+        <Stack.Screen name="SignUpAdress" component={SignUpAdress} options={{ headerShown: true, headerTransparent: true, headerTitle: 'Voltar', headerTintColor: '#408241' }}/>
       </Stack.Navigator>
     </NavigationContainer>
   );
