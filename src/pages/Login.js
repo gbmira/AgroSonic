@@ -7,7 +7,11 @@ import {
   TouchableHighlight,
   TextInput,
   ActivityIndicator,
-  ImageBackground
+  ImageBackground,
+  KeyboardAvoidingView,
+  Keyboard,
+  Platform,
+  TouchableWithoutFeedback
 } from "react-native";
 
 import React, { useState, useEffect, useCallback } from "react";
@@ -40,6 +44,12 @@ export default function Login({ navigation }) {
   };
 
   return (
+    <KeyboardAvoidingView
+      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+      style={styles.container}
+    >
+      <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+
     <View style={styles.container}>
       <ImageBackground
         source={require(imgBg)}
@@ -100,6 +110,8 @@ export default function Login({ navigation }) {
       </View>
       </ImageBackground>
     </View>
+    </TouchableWithoutFeedback>
+    </KeyboardAvoidingView>
   );
 }
 
