@@ -8,6 +8,7 @@ export default function Home() {
 
 
   return (
+    <SafeAreaView style={styles.safeArea}>
     <ScrollView contentContainerStyle={styles.container}>
 
       <Image
@@ -61,7 +62,7 @@ export default function Home() {
       <Image style={styles.imagePlanta} source={require('../assets/images/plantafone.jpg')} />
 
     </ScrollView>
-
+    </SafeAreaView>
   )
 }
 
