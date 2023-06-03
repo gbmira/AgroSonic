@@ -1,5 +1,9 @@
 import { Dimensions, Text, View, Image, StyleSheet, TouchableOpacity, TouchableHighlight, TextInput, ScrollView, SafeAreaView } from 'react-native';
 import React, { useState, useEffect } from 'react';
+import Icon from 'react-native-vector-icons/MaterialIcons'
+import FontAwesome from 'react-native-vector-icons/FontAwesome'
+import Entypo from 'react-native-vector-icons/Entypo'
+
 
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
@@ -42,19 +46,35 @@ export default function Home() {
         <Text style={styles.texts2}>A <Text style={styles.textAgro}>Agro</Text><Text style={styles.textSonic}>Sonic</Text> foi criada com objetivo de maximizar as produções agrícolas verticais e reduzir desperdícios. Utilizando tecnologias como inteligência artificial (IA) generativa, internet das coisas (IoT) e microfones ultrassônicos, a empresa realiza o mapeamento sonoro de espécies cultivadas.</Text>
       </View>
 
-      <View style={styles.finalTexts}>
+      <View style={styles.iconParts}>
 
+      <View style={styles.iconPart1}>
+        <Icon name="computer" size={45} color="#000"></Icon>
         <Text style={styles.texts3}>
-          Estudos realizados pela universidade de Tel Aviv em Israel mostraram que pés de tomate e tabaco emitem padrões sonoros, que são medidos em kilohertz, os sons refletem sua saúde. Plantios saudáveis podem gerar até 2 estalos por hora, enquanto plantios desnutridos e desidratados podem gerar de 20 a 40 estalos por hora. Além disso, mudanças no comportamento das plantas devido à presença de machucados, pragas e insetos também alteram os seus estalos.
+        Sistema Automatizado, completo, simples e Inteligente!
         </Text>
+      </View>
 
+      <View style={styles.iconPart2}>
+        <FontAwesome name="mobile-phone" size={45} color="#000"></FontAwesome>
         <Text style={styles.texts3}>
-          Através do mapeamento das espécies mais consumidas, a <Text style={styles.textAgro}>Agro</Text><Text style={styles.textSonic}>Sonic</Text> pode auxiliar na identificação de problemas invisíveis a olho nu, que afetam a qualidade, o período de desenvolvimento e o desperdício de alimentos que poderiam ser destinados a áreas com escassez.
+        Acesso e Mobilidade para receber avisos sobre sua plantação de qualquer lugar.
         </Text>
+      </View>
 
+      <View style={styles.iconPart3}>
+        <Entypo name="bar-graph" size={45} color="#000"></Entypo>
         <Text style={styles.texts3}>
-          Nosso processo de aprendizado de máquina, usando classificação e redes neurais, é utilizado para treinar modelos que analisam os sons das plantas e fornecem indicações sobre as necessidades do cultivo.
+        Gráficos atualizados e de fácil entendimento!
         </Text>
+      </View>
+
+      <View style={styles.iconPart4}>
+        <Icon name="search" size={45} color="#000"></Icon>
+        <Text style={styles.texts3}>
+        Controle, eficácia, pesquisa e desenvolvimento
+        </Text>
+      </View>
 
       </View>
 
@@ -143,15 +163,30 @@ const styles = StyleSheet.create({
     color: 'white',
   },
 
-  finalTexts: {
+  iconParts: {
     width: '80%',
     margin: 16,
     alignItems: 'center',
-    justifyContent: 'center'
+    gap: 50
+  },
+
+  iconPart1: {
+    flexDirection: "row",
+  },
+
+  iconPart2: {
+    flexDirection: "row",
+  },
+
+  iconPart3: {
+    flexDirection: "row",
+  },
+
+  iconPart4: {
+    flexDirection: "row",
   },
 
   texts3: {
-    marginBottom: 20,
     textAlign: 'center',
     fontSize: 16,
     width: '90%',

@@ -24,6 +24,8 @@ import { client } from "../../Api/index";
 
 
 
+
+
 const imgBg = '../assets/images/bglogin.png'
 
 export default function Login({ navigation }) {
