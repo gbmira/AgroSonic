@@ -7,13 +7,14 @@ import Login from "./src/pages/Login"
 import SignUp from "./src/pages/SignUpFlux/SignUp"
 import Home from "./src/pages/Home"
 import Contato from "./src/pages/Contato"
-import Planos from "./src/pages/Planos"
+import Perfil from "./src/pages/Perfil"
 import Microfone from "./src/pages/Microfone"
 import QuemSomos from "./src/pages/QuemSomos"
 import SignUpAdress from "./src/pages/SignUpFlux/SignUpAdress"
 import ButtonMic from './components/ButtonMic';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Entypo, Feather } from '@expo/vector-icons'
+import { UserProvider } from './contexts/UserContext.js';
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -43,11 +44,11 @@ function Tabs() {
       />
 
       <Tab.Screen
-        name="Planos"
-        component={Planos}
+        name="Perfil"
+        component={Perfil}
         options={{
           tabBarIcon: ({ size, color }) => (
-            <Entypo name="leaf" size={size} color={color} />
+            <Entypo name="profile" size={size} color={color} />
           )
         }}
       />
@@ -89,6 +90,7 @@ function Tabs() {
 export default function App() {
 
   return (
+    <UserProvider>
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Login">
         <Stack.Screen name="Login" component={Login} options={{ headerShown: false, headerTransparent: true }} />
@@ -97,6 +99,7 @@ export default function App() {
         <Stack.Screen name="Home" component={Tabs} options={{ headerShown: false, headerTransparent: true, }} />
       </Stack.Navigator>
     </NavigationContainer>
+    </UserProvider>
   );
 }
 

@@ -1,19 +1,23 @@
 import {
   Text, View, Image, StyleSheet, TouchableOpacity, TouchableHighlight, TextInput, ImageBackground
 } from 'react-native';
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useContext, useState, useEffect, useCallback } from 'react';
 import { Formik } from "formik";
 import { client } from "../../../Api/index";
+import UserContext from '../../../contexts/UserContext.js';
+
 
 
 const imgBg = '../../assets/images/bgsu.png'
 
 export default function SignUp({ navigation }) {
+  const { updateUser } = useContext(UserContext);
 
 
   const handleNext = async (values) => {
     // console.log(`Valores: ${JSON.stringify(values)}`)
     navigation.navigate('SignUpAdress', { values });
+    updateUser(values.nome, values.email);
 
 
     // if (senha.length < 6) {
