@@ -7,6 +7,11 @@ import {
   TouchableHighlight,
   TextInput,
   ActivityIndicator,
+  ImageBackground,
+  KeyboardAvoidingView,
+  Keyboard,
+  Platform,
+  TouchableWithoutFeedback
 } from "react-native";
 
 import React, { useState, useEffect, useCallback } from "react";
@@ -17,6 +22,10 @@ import axios from "axios";
 
 import { client } from "../../Api/index";
 
+
+
+const imgBg = '../assets/images/bglogin.png'
+
 export default function Login({ navigation }) {
   const [isLoading, setIsLoading] = useState(false);
 
@@ -25,6 +34,7 @@ export default function Login({ navigation }) {
       setIsLoading(true);
       const response = await client.post(`/api/auth/signin`, values);
       console.log("meu response", response);
+      navigation.navigate('Home')
     } catch (error) {
       console.error(`Erro ao realizar o login ${error}`);
     } finally {
@@ -34,7 +44,17 @@ export default function Login({ navigation }) {
   };
 
   return (
+    <KeyboardAvoidingView
+      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+      style={styles.container}
+    >
+      <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+
     <View style={styles.container}>
+      <ImageBackground
+        source={require(imgBg)}
+        style={styles.bgImage}
+      >
       <View style={styles.header}>
         <Image
           style={styles.imageH}
@@ -88,7 +108,10 @@ export default function Login({ navigation }) {
           Desejo <Text style={styles.textEnd}>criar uma conta</Text>
         </Text>
       </View>
+      </ImageBackground>
     </View>
+    </TouchableWithoutFeedback>
+    </KeyboardAvoidingView>
   );
 }
 
@@ -101,6 +124,14 @@ const styles = StyleSheet.create({
     alignItems: "center",
 
     justifyContent: "center",
+  },
+
+  bgImage: {
+    resizeMode: 'cover',
+    width: '100%',
+    height: '100%',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 
   header: {
@@ -190,7 +221,7 @@ const styles = StyleSheet.create({
   button: {
     justifyContent: "center",
 
-    width: "100%",
+    width: 300,
 
     height: 55,
 

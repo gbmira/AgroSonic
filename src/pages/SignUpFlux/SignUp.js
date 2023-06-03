@@ -1,12 +1,12 @@
 import {
-  Text, View, Image, StyleSheet, TouchableOpacity, TouchableHighlight, TextInput,
+  Text, View, Image, StyleSheet, TouchableOpacity, TouchableHighlight, TextInput, ImageBackground
 } from 'react-native';
 import React, { useState, useEffect, useCallback } from 'react';
 import { Formik } from "formik";
 import { client } from "../../../Api/index";
 
 
-
+const imgBg = '../../assets/images/bgsu.png'
 
 export default function SignUp({ navigation }) {
 
@@ -28,6 +28,11 @@ export default function SignUp({ navigation }) {
 
   return (
     <View style={styles.container}>
+
+    <ImageBackground
+            source={require(imgBg)}
+            style={styles.bgImage}
+          >
       <Text style={styles.texts}>
         Cadastre<Text style={styles.textGreen}>-se</Text>
       </Text>
@@ -101,6 +106,8 @@ export default function SignUp({ navigation }) {
           </>
         )}
       </Formik>
+
+      </ImageBackground>
     </View>
 
 
@@ -112,6 +119,14 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#A8EFAF',
     flex: 1,
+    justifyContent: 'center',
+  },
+
+  bgImage: {
+    resizeMode: 'cover',
+    width: '100%',
+    height: '100%',
+    alignItems: 'center',
     justifyContent: 'center',
   },
 
