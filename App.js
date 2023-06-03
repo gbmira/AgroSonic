@@ -48,7 +48,7 @@ function Tabs() {
         component={Perfil}
         options={{
           tabBarIcon: ({ size, color }) => (
-            <Entypo name="profile" size={size} color={color} />
+            <Entypo name="user" size={size} color={color} />
           )
         }}
       />

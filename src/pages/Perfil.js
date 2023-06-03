@@ -10,7 +10,7 @@ export default function Perfil () {
   const { nomeUsuario, email } = useContext(UserContext);
 
   return (
-    <View>
+    <View style={styles.container}>
       <Text>Nome de usuário: {nomeUsuario}</Text>
       <Text>Email: {email}</Text>
     </View>
@@ -20,6 +20,7 @@ export default function Perfil () {
 const styles = StyleSheet.create({
     container:{
         alignItems: 'center',
-        justifyContent: 'center'
+        justifyContent: 'center',
+        flex: 1
     }
 })

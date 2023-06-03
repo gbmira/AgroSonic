@@ -35,6 +35,7 @@ export default function Login({ navigation }) {
       const response = await client.post(`/api/auth/signin`, values);
       console.log("meu response", response);
       navigation.navigate('Home')
+      
     } catch (error) {
       console.error(`Erro ao realizar o login ${error}`);
     } finally {
@@ -51,10 +52,7 @@ export default function Login({ navigation }) {
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
 
     <View style={styles.container}>
-      <ImageBackground
-        source={require(imgBg)}
-        style={styles.bgImage}
-      >
+      
       <View style={styles.header}>
         <Image
           style={styles.imageH}
@@ -82,6 +80,7 @@ export default function Login({ navigation }) {
                 onChangeText={handleChange("senha")} // Fix typo here
                 value={values.senha}
                 style={styles.inputs}
+                secureTextEntry={true}
                 placeholder="Senha"
                 placeholderTextColor="#408241"
               />
@@ -98,6 +97,7 @@ export default function Login({ navigation }) {
             </>
           )}
         </Formik>
+
       </View>
 
       <View style={styles.footer}>
@@ -108,7 +108,6 @@ export default function Login({ navigation }) {
           Desejo <Text style={styles.textEnd}>criar uma conta</Text>
         </Text>
       </View>
-      </ImageBackground>
     </View>
     </TouchableWithoutFeedback>
     </KeyboardAvoidingView>
