@@ -1,79 +1,80 @@
-import { Text, View, Image, StyleSheet, TouchableOpacity, TouchableHighlight, TextInput, } from 'react-native';
-import React, { useState, useEffect, useCallback } from 'react';
+import { Text, View, Image, StyleSheet, TouchableOpacity, TextInput } from 'react-native';
+import React, { useState } from 'react';
 import { Formik } from "formik";
 import { client } from "../../../Api/index";
 
 export default function SignUpAdress({ navigation, route }) {
-
-    console.log(route.params.values)
-
     const [endereco, setEndereco] = useState({
         logradouro: "",
         bairro: "",
-        uf: ""
+        uf: "",
+        localidade: "Brasil"
     });
-
-    const mergedObj = { ...route.params.values, ...endereco };
-    console.log(mergedObj)
-
-    const [userData, setUserData] = useState({
-        nome: "",
-        telefone: "",
-        cpf: "",
-        email: "",
-        senha: "",
-        endereco: [
-          {
-            cep: "",
-            logradouro: "",
-            bairro: "",
-            localidade: "",
-            uf: ""
-          }
-        ],
-        roles: [
-          {
-            nome: "ROLE_USER"
-          }
-        ]
-      });
 
     const handleCEPChange = async (cep) => {
         try {
-            console.log(cep)
             const response = await client.get(`/api/consultaCEP/${cep}`);
-           
+
             if (response.status === 200) {
-                const data = JSON.stringify(response.data)
                 setEndereco({
                     logradouro: response.data.logradouro,
                     bairro: response.data.bairro,
                     uf: response.data.uf
                 });
-                console.log(endereco)
             } else {
                 console.error('Erro ao consultar CEP');
             }
         } catch (error) {
             console.error('Erro ao consultar CEP', error);
         }
+
     };
 
-    const handleSubmit = async (mergedObj) => {
-        console.log(`Objeto Formatado: ${JSON.stringify(mergedObj)}`)
-
-        // const response = await client.post(`/api/auth/signin`, values);
-        // console.log("meu response", response);
+    const handleSubmit = async (values) => {
+        const mergedObj = { ...route.params.values, ...endereco, cep: values.cep };
+        console.log(mergedObj)
 
 
-        // if (senha.length < 6) {
-        //   alert('A senha deve ser maior que 6 caracteres!');
-        // } else {
-        //   if (senha === confirmaSenha) {
-        //   }
-        // }
-    }
+        const userData = {
+            nome: mergedObj.nome,
+            telefone: mergedObj.telefone,
+            cpf: mergedObj.cpf,
+            email: mergedObj.email,
+            senha: mergedObj.senha,
+            endereco: [
+                {
+                    logradouro: mergedObj.logradouro,
+                    cep: mergedObj.cep,
+                    bairro: mergedObj.bairro,
+                    localidade:mergedObj.bairro,
+                    uf: mergedObj.uf
+                }
+            ],
+            roles: [
+                {
+                    nome: "ROLE_USER"
+                }
+            ]
+        };
 
+        try {
+            setIsLoading(true);
+            const response = await client.post(`/api/auth/signup`, userData);
+            console.log("meu response", response);
+          } catch (error) {
+            console.error(`Erro ao realizar o Cadastro ${error}`);
+          } finally {
+            console.log("ta passando aqui");
+            setIsLoading(false);
+          }
+        
+
+
+
+        console.log("Objeto usuario: ", userData);
+
+        // Resto do código...
+    };
 
     const { nome, email, telefone } = route.params.values;
 
@@ -88,25 +89,23 @@ export default function SignUpAdress({ navigation, route }) {
                 source={require('../../assets/images/planta.png')}
             />
 
-            <Formik initialValues={{ cep: "" }} onSubmit={handleSubmit}>
-                {(
-                    { handleChange, handleSubmit, values }
-                ) => (
+            <Formik initialValues={{ cep: "", localidade: "" }} onSubmit={handleSubmit}>
+                {({ handleChange, handleSubmit, values }) => (
                     <>
                         <View style={styles.inputArea}>
                             <TextInput
                                 onChangeText={handleChange("cep")}
                                 onBlur={() => handleCEPChange(values.cep)}
-                                value={endereco.cep}
+                                value={values.cep || ""} // Make sure the initial value is defined or provide a default empty string
                                 style={styles.inputs}
                                 placeholder="Informe seu cep"
                                 placeholderTextColor="#408241"
                                 required
                             />
+                     
                             <TextInput
                                 onChangeText={handleChange("logradouro")}
                                 value={endereco.logradouro}
-                                //value={values.logradouro}
                                 style={styles.inputs}
                                 placeholder="Logradouro"
                                 placeholderTextColor="#408241"
@@ -132,26 +131,6 @@ export default function SignUpAdress({ navigation, route }) {
                                 required
                             />
 
-
-                            {/*   
-          <TextInput
-          style={styles.inputs}
-          secureTextEntry
-          placeholder="Senha"
-          placeholderTextColor="#408241"
-          required
-          onChangeText={(senha) => setSenha(senha)}
-          />
-          
-          <TextInput
-          style={styles.inputs}
-          secureTextEntry
-          placeholder="Confirmar Senha"
-          placeholderTextColor="#408241"
-          required
-          onChangeText={(confirmaSenha) => setConfirmaSenha(confirmaSenha)}
-        /> */}
-
                             <TouchableOpacity style={styles.button} onPress={handleSubmit}>
                                 <Text style={styles.buttonText}>Avançar</Text>
                             </TouchableOpacity>
@@ -160,10 +139,7 @@ export default function SignUpAdress({ navigation, route }) {
                 )}
             </Formik>
         </View>
-
-
     );
-
 }
 
 const styles = StyleSheet.create({
@@ -173,7 +149,6 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
     },
-
     texts: {
         fontSize: 25.2,
         bottom: 90,
@@ -188,21 +163,12 @@ const styles = StyleSheet.create({
     inputArea: {
         alignItems: 'center',
         width: '80%'
-
-
     },
-
-    textGreen: {
-        color: '#80c054',
-    },
-
     image: {
         width: 202,
         height: 149.008,
         bottom: 65
-
     },
-
     inputs: {
         marginTop: 16,
         width: '100%',
@@ -224,7 +190,6 @@ const styles = StyleSheet.create({
         shadowRadius: 4,
         borderRadius: 3,
     },
-
     button: {
         backgroundColor: '#408241',
         justifyContent: 'center',
@@ -241,7 +206,6 @@ const styles = StyleSheet.create({
         shadowRadius: 4,
         borderRadius: 10,
     },
-
     buttonText: {
         color: '#fff',
         textAlign: 'center',

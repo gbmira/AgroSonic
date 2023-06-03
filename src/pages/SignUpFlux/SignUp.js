@@ -83,7 +83,9 @@ export default function SignUp({ navigation }) {
               />
                  
           <TextInput
+          onChangeText={handleChange("senha")}
           style={styles.inputs}
+          value={values.senha}
           secureTextEntry
           placeholder="Senha"
           placeholderTextColor="#408241"
