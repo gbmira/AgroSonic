@@ -7,7 +7,7 @@ import FontAwesome from 'react-native-vector-icons/FontAwesome'
 import Entypo from 'react-native-vector-icons/Entypo'
 
 export default function Perfil() {
-  const { nomeUsuario, email } = useContext(UserContext);
+  const { nome, email } = useContext(UserContext);
 
   return (
     <SafeAreaView style={styles.safeArea}>
@@ -21,8 +21,8 @@ export default function Perfil() {
         />
 
         <View style={styles.boxProfile}>
-          <Text style={styles.name}>Jhonatas Oliveira</Text>
-          <Text>Jhonatas2004@gmail.com</Text>
+          <Text style={styles.name}>{nome}</Text>
+          <Text>{email}</Text>
         </View>
 
         <TouchableOpacity style={styles.button}>
@@ -31,6 +31,7 @@ export default function Perfil() {
         {/* <Text>Nome de usuário: {nomeUsuario}</Text>
       <Text>Email: {email}</Text> */}
 
+        <View style={styles.menu}>
         <TouchableOpacity style={styles.Menubutton}>
 
           <Image
@@ -73,6 +74,7 @@ export default function Perfil() {
 
 
         </TouchableOpacity>
+        </View>
       </View>
     </SafeAreaView>
 
@@ -81,7 +83,6 @@ export default function Perfil() {
 
 const styles = StyleSheet.create({
   title: {
-    marginTop: 30,
     fontSize: 30,
     fontWeight: 'bold'
   },
@@ -103,9 +104,6 @@ const styles = StyleSheet.create({
   boxProfile: {
     alignItems: 'center',
     gap: 5
-
-
-
   },
   btnName: {
     color: '#FFF',
@@ -131,6 +129,11 @@ const styles = StyleSheet.create({
     borderRadius: 50,
 
   },
+
+  menu: {
+    gap: 15
+  },
+
   Menubutton: {
     width: '85%',
     height: 65,
@@ -141,10 +144,6 @@ const styles = StyleSheet.create({
     padding: 10,
     borderRadius: 50,
     justifyContent: 'space-between'
-    
-
-
-
   },
   imgIcon: {
     marginRight: 15,
@@ -159,6 +158,6 @@ const styles = StyleSheet.create({
   },
   texto: {
     width: 100,
-    textAlign: 'center'
+    textAlign: 'center',
   }
 })

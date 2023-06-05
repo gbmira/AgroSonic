@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import {
   Text,
   View,
@@ -14,13 +14,16 @@ import {
 } from 'react-native';
 import { Formik } from 'formik';
 import { client } from '../../../Api/index';
+import UserContext from '../../../contexts/UserContext';
 
 export default function SignUp({ navigation }) {
   const [isLoading, setIsLoading] = useState(false);
+  const { updateUser } = useContext(UserContext);
 
   const handleNext = async (values) => {
     try {
       setIsLoading(true);
+      updateUser(values.nome, values.email);
       navigation.navigate('SignUpAdress', { values });
     } catch (error) {
       console.log(error);

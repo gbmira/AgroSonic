@@ -3,16 +3,16 @@ import React, { createContext, useState } from 'react';
 const UserContext = createContext();
 
 export const UserProvider = ({ children }) => {
-  const [nomeUsuario, setNomeUsuario] = useState('');
+  const [nome, setNome] = useState('');
   const [email, setEmail] = useState('');
 
   const updateUser = (newNomeUsuario, newEmail) => {
-    setNomeUsuario(newNomeUsuario);
+    setNome(newNomeUsuario);
     setEmail(newEmail);
   };
 
   const user = {
-    nomeUsuario,
+    nome,
     email,
     updateUser,
   };

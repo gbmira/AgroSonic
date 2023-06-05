@@ -77,28 +77,28 @@ export default function Home() {
 
           <View style={styles.iconPart1}>
             <Icon name="computer" size={45} color="#000"></Icon>
-            <Text style={styles.texts3}>
+            <Text style={styles.texts3icon}>
             <Text style={styles.decorationLine}>Sistema automatizado</Text>, seguro, simples e Inteligente!
             </Text>
           </View>
 
           <View style={styles.iconPart2}>
             <FontAwesome name="mobile-phone" size={45} color="#000"></FontAwesome>
-            <Text style={styles.texts3}>
+            <Text style={styles.texts3icon}>
               Acesso e <Text style={styles.decorationLine}>mobilidade</Text> para receber avisos sobre sua plantação de qualquer lugar.
             </Text>
           </View>
 
           <View style={styles.iconPart3}>
             <Entypo name="bar-graph" size={45} color="#000"></Entypo>
-            <Text style={styles.texts3}>
+            <Text style={styles.texts3icon}>
             <Text style={styles.decorationLine}>Gráficos atualizados</Text> e de fácil entendimento!
             </Text>
           </View>
 
           <View style={styles.iconPart4}>
             <Icon name="search" size={45} color="#000"></Icon>
-            <Text style={styles.texts3}>
+            <Text style={styles.texts3icon}>
               Controle, eficácia, <Text style={styles.decorationLine}>pesquisa e desenvolvimento.</Text>
             </Text>
           </View>
@@ -266,6 +266,14 @@ const styles = StyleSheet.create({
     backgroundColor: '#80c054',
   },
 
+  texts3icon: {
+    textAlign: 'center',
+    padding: 20,
+    fontSize: 16,
+    width: '90%',
+    color: 'black',
+  },
+
 
   iconPart1: {
     flexDirection: "row",
@@ -357,7 +365,7 @@ const styles = StyleSheet.create({
 
   texts3: {
     textAlign: 'center',
-    padding: 20,
+    padding: 10,
     fontSize: 16,
     width: '90%',
     color: 'black',

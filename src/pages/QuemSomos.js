@@ -100,7 +100,7 @@ const styles = StyleSheet.create({
     },
     
     mainText: {
-        fontSize: 20,
+        fontSize: 27,
         fontStyle: 'normal',
         textAlign: 'center',
         fontWeight: 'bold',
