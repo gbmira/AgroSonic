@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import Icon from 'react-native-vector-icons/MaterialIcons'
 import FontAwesome from 'react-native-vector-icons/FontAwesome'
 import Entypo from 'react-native-vector-icons/Entypo'
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 
 const windowWidth = Dimensions.get('window').width;
@@ -13,75 +14,140 @@ export default function Home() {
 
   return (
     <SafeAreaView style={styles.safeArea}>
-    <ScrollView contentContainerStyle={styles.container}>
+      <ScrollView contentContainerStyle={styles.container}>
 
-      <Image
-        style={styles.ImageHome}
-        source={require('../assets/images/agricola.jpg')}
-      />
+        <Image
+          style={styles.ImageHome}
+          source={require('../assets/images/agricola.jpg')}
+        />
 
-      <View style={styles.initialTexts}>
+        <View style={styles.initialTexts}>
 
-        <Text style={styles.mainText}>
-          Ficou muito mais preciso e fácil poder cuidar de nossas <Text style={styles.textGreen}>plantas!</Text>
-        </Text>
+          <Text style={styles.mainText}>
+            Ficou muito mais preciso e fácil poder cuidar de nossas{' '}
+            <Text style={styles.textGreen}>plantas!</Text>
+          </Text>
 
-        <Text style={styles.texts}>
-          Em 2020, mais de 800 milhões de pessoas estavam com fome, 2,4 bilhões de pessoas estavam inseguras alimentarmente
-          e milhões de crianças sofriam de retardo de crescimento e caquexia.
-        </Text>
+          <Text style={styles.texts}>
+            A <Text style={styles.textAgro}>Agro</Text>
+            <Text style={styles.textSonic}>Sonic</Text> foi criada com objetivo de
+            maximizar as produções agrícolas verticais e <Text style={styles.decorationLine}>reduzir desperdícios.</Text>
+            Utilizando tecnologias como inteligência artificial (IA) generativa,
+            internet das coisas (IoT) e microfones ultrassônicos, a empresa
+            realiza o <Text style={styles.decorationLine}>mapeamento sonoro</Text> de espécies cultivadas.
+          </Text>
 
-        <Text style={styles.texts}>
-          A escassez de alimentos é agravada por mudanças climáticas, mal gerenciamento de safras e desigualdades sociais.
-        </Text>
+          <Text style={styles.texts}>
+            Estudos realizados pela universidade de Tel Aviv em Israel mostraram
+            que pés de tomate e tabaco emitem padrões sonoros, que são medidos em
+            kilohertz, os sons refletem sua saúde. Plantios saudáveis podem gerar
+            até 2 estalos por hora, enquanto plantios desnutridos e desidratados
+            podem gerar de 20 a 40 estalos por hora.
+          </Text>
 
-        <Text style={styles.texts}>
-          É necessário promover o desenvolvimento da agricultura sustentável e reduzir desperdícios, afinal combater a fome é
-          uma questão de justiça social e desenvolvimento econômico do país.
-        </Text>
+          <Text style={styles.texts}>
+            Através de nosso mapeamento podemos auxiliar na identificação de
+            problemas invisíveis a olho nu, que afetam a qualidade, o período de
+            desenvolvimento e o desperdício de alimentos que poderiam ser
+            destinados a áreas com escassez.
+          </Text>
 
-      </View>
+          <Text style={styles.texts}>
+            Nosso processo de aprendizado de máquina, usando classificação e redes
+            neurais, é utilizado para treinar modelos que analisam os sons das
+            plantas e fornecem <Text style={styles.decorationLine}>indicações sobre as necessidades do cultivo.</Text>
+          </Text>
 
-      <View style={styles.greenBackground}>
-        <Text style={styles.texts2}>A <Text style={styles.textAgro}>Agro</Text><Text style={styles.textSonic}>Sonic</Text> foi criada com objetivo de maximizar as produções agrícolas verticais e reduzir desperdícios. Utilizando tecnologias como inteligência artificial (IA) generativa, internet das coisas (IoT) e microfones ultrassônicos, a empresa realiza o mapeamento sonoro de espécies cultivadas.</Text>
-      </View>
+        </View>
 
-      <View style={styles.iconParts}>
+        <View style={styles.greenBackground}>
+          <Text style={styles.texts2}>A <Text style={styles.textAgro}>Agro</Text><Text style={styles.textSonic}>Sonic</Text> foi criada com objetivo de maximizar as produções agrícolas verticais e reduzir desperdícios. Utilizando tecnologias como inteligência artificial (IA) generativa, internet das coisas (IoT) e microfones ultrassônicos, a empresa realiza o mapeamento sonoro de espécies cultivadas.</Text>
+        </View>
 
-      <View style={styles.iconPart1}>
-        <Icon name="computer" size={45} color="#000"></Icon>
-        <Text style={styles.texts3}>
-        Sistema Automatizado, completo, simples e Inteligente!
-        </Text>
-      </View>
+        <View style={styles.iconParts}>
 
-      <View style={styles.iconPart2}>
-        <FontAwesome name="mobile-phone" size={45} color="#000"></FontAwesome>
-        <Text style={styles.texts3}>
-        Acesso e Mobilidade para receber avisos sobre sua plantação de qualquer lugar.
-        </Text>
-      </View>
+          <View style={styles.mainTextIcon}>
+            <View style={styles.textContainer}>
+              <Text style={styles.choose}>
+                Por que nos <Text style={styles.textBG}>escolher?</Text>
+              </Text>
+            </View>
+            <FontAwesome name="hand-o-left" size={30} color="#000" />
+          </View>
 
-      <View style={styles.iconPart3}>
-        <Entypo name="bar-graph" size={45} color="#000"></Entypo>
-        <Text style={styles.texts3}>
-        Gráficos atualizados e de fácil entendimento!
-        </Text>
-      </View>
+          <View style={styles.iconPart1}>
+            <Icon name="computer" size={45} color="#000"></Icon>
+            <Text style={styles.texts3}>
+            <Text style={styles.decorationLine}>Sistema automatizado</Text>, seguro, simples e Inteligente!
+            </Text>
+          </View>
 
-      <View style={styles.iconPart4}>
-        <Icon name="search" size={45} color="#000"></Icon>
-        <Text style={styles.texts3}>
-        Controle, eficácia, pesquisa e desenvolvimento
-        </Text>
-      </View>
+          <View style={styles.iconPart2}>
+            <FontAwesome name="mobile-phone" size={45} color="#000"></FontAwesome>
+            <Text style={styles.texts3}>
+              Acesso e <Text style={styles.decorationLine}>mobilidade</Text> para receber avisos sobre sua plantação de qualquer lugar.
+            </Text>
+          </View>
 
-      </View>
+          <View style={styles.iconPart3}>
+            <Entypo name="bar-graph" size={45} color="#000"></Entypo>
+            <Text style={styles.texts3}>
+            <Text style={styles.decorationLine}>Gráficos atualizados</Text> e de fácil entendimento!
+            </Text>
+          </View>
+
+          <View style={styles.iconPart4}>
+            <Icon name="search" size={45} color="#000"></Icon>
+            <Text style={styles.texts3}>
+              Controle, eficácia, <Text style={styles.decorationLine}>pesquisa e desenvolvimento.</Text>
+            </Text>
+          </View>
+
+        </View>
+
+        <View style={styles.greyBackground}>
+          <View style={styles.iconGreyBG}>
+            <MaterialCommunityIcons
+              name="clock-fast"
+              size={45}
+              color="green"></MaterialCommunityIcons>
+            <Text style={styles.textIconGrey}>Tudo em tempo real!</Text>
+          </View>
+
+          <View style={styles.iconGreyBG}>
+            <Icon name="attach-money" size={45} color="green"></Icon>
+            <Text style={styles.textIconGrey}>Preço acessível</Text>
+          </View>
+
+          <View style={styles.iconGreyBG}>
+            <Entypo name="leaf" size={45} color="green"></Entypo>
+            <Text style={styles.textIconGrey}>Suas plantações saudáveis</Text>
+          </View>
+        </View>
+
+        <View style={styles.finalTexts}>
+          <Text style={styles.texts3}>
+            Em 2020, mais de <Text style={styles.decorationLine}>800 milhões de pessoas</Text> estavam com fome, 2,4 bilhões
+            de pessoas estavam inseguras alimentarmente e milhões de crianças
+            sofriam de retardo de crescimento e caquexia.
+          </Text>
+
+          <Text style={styles.texts3}>
+            A escassez de alimentos é agravada por mudanças climáticas, mal
+            gerenciamento de safras e desigualdades sociais.
+          </Text>
+
+          <Text style={styles.texts3}>
+            É necessário promover o desenvolvimento da agricultura sustentável e
+            reduzir desperdícios, afinal combater a fome é uma questão de justiça
+            social e desenvolvimento econômico do país.
+          </Text>
+        </View>
 
 
-      <Image style={styles.imagePlanta} source={require('../assets/images/plantafone.jpg')} />
+        <Image style={styles.imagePlanta} source={require('../assets/images/plantafone.jpg')} />
 
-    </ScrollView>
+      </ScrollView>
     </SafeAreaView>
   )
 }
@@ -90,7 +156,7 @@ const styles = StyleSheet.create({
 
   safeArea: {
     flex: 1,
-    backgroundColor: '#A8EFAF', // Cor branca com 50% de opacidade
+    backgroundColor: 'white', // Cor branca com 50% de opacidade
   },
 
   container: {
@@ -100,10 +166,10 @@ const styles = StyleSheet.create({
     flexGrow: 1,
   },
 
-  ImageHome:{
+  ImageHome: {
     width: windowWidth * 1,
-          height: windowHeight * 0.3,
-          marginBottom: 10,
+    height: windowHeight * 0.3,
+    marginBottom: 10,
   },
 
 
@@ -121,7 +187,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontWeight: 'bold',
     lineHeight: 27,
-    color: '#4B4B4B',
+    color: 'black',
     textShadowColor: 'rgba(0, 0, 0, 0.15)',
     textShadowOffset: { width: 0, height: 4 },
     textShadowRadius: 4,
@@ -147,13 +213,13 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     height: 200,
     backgroundColor: '#356136',
-    shadowColor: 'rgba(0, 0, 0, 0.25)',
+    shadowColor: "#000",
     shadowOffset: {
       width: 0,
-      height: 0,
+      height: 4,
     },
-    shadowOpacity: 1,
-    shadowRadius: 10,
+    shadowOpacity: 0.50,
+    shadowRadius: 4,
   },
 
   texts2: {
@@ -166,31 +232,63 @@ const styles = StyleSheet.create({
   iconParts: {
     width: '80%',
     margin: 16,
+    justifyContent: 'center',
     alignItems: 'center',
     gap: 50
   },
 
+  mainTextIcon: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    fontWeight: 'bold',
+  },
+
+  textContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+
+  choose: {
+    fontSize: 27,
+    fontStyle: 'normal',
+    textAlign: 'center',
+    fontWeight: 'bold',
+    marginRight: 8,
+    lineHeight: 27,
+    color: 'black',
+    textShadowColor: 'rgba(0, 0, 0, 0.15)',
+    textShadowOffset: { width: 0, height: 4 },
+    textShadowRadius: 4,
+  },
+
+  textBG: {
+    backgroundColor: '#80c054',
+  },
+
+
   iconPart1: {
     flexDirection: "row",
+    alignItems: 'center',
+    justifyContent: 'space-around'
   },
 
   iconPart2: {
     flexDirection: "row",
+    alignItems: 'center',
+    justifyContent: 'space-around'
   },
 
   iconPart3: {
     flexDirection: "row",
+    alignItems: 'center',
+    justifyContent: 'space-around'
   },
 
   iconPart4: {
     flexDirection: "row",
-  },
-
-  texts3: {
-    textAlign: 'center',
-    fontSize: 16,
-    width: '90%',
-    color: 'black',
+    alignItems: 'center',
+    justifyContent: 'space-around'
   },
 
   textAgro: {
@@ -203,7 +301,69 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
 
-  imagePlanta:{
+  greyBackground: {
+    width: '100%',
+    marginTop: 30,
+    backgroundColor: '#C8C8C8',
+    alignItems: 'center',
+    justifyContent: 'center',
+    height: 560,
+    gap: 40,
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: -4,
+    },
+    shadowOpacity: 0.35,
+    shadowRadius: 4,
+  },
+
+  iconGreyBG: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: '70%',
+    height: 128,
+    gap: 5,
+    backgroundColor: '#FFF',
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 4,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 4,
+    borderRadius: 20,
+  },
+
+  textIconGrey: {
+    fontSize: 16,
+    color: 'black',
+    alignItems: 'center',
+    justifyContent: 'center',
+    fontWeight: 'bold',
+  },
+
+  finalTexts: {
+    width: '80%',
+    margin: 16,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+
+  decorationLine:{
+    textDecorationLine: 'underline',
+    textDecorationColor: 'green',
+  },
+
+  texts3: {
+    textAlign: 'center',
+    padding: 20,
+    fontSize: 16,
+    width: '90%',
+    color: 'black',
+  },
+
+  imagePlanta: {
     width: windowWidth * 1,
     height: windowHeight * 0.3,
   },

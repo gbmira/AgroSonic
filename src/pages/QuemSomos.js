@@ -51,7 +51,7 @@ const styles = StyleSheet.create({
 
     safeArea: {
         flex: 1,
-        backgroundColor: '#A8EFAF', // Cor branca com 50% de opacidade
+        backgroundColor: 'white', // Cor branca com 50% de opacidade
       },
 
     container: {

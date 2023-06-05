@@ -82,7 +82,7 @@ export default function Perfil() {
 const styles = StyleSheet.create({
   title: {
     marginTop: 30,
-    fontSize: 18,
+    fontSize: 30,
     fontWeight: 'bold'
   },
   container: {

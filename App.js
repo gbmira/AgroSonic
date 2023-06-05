@@ -9,6 +9,7 @@ import Home from "./src/pages/Home"
 import Contato from "./src/pages/Contato"
 import Perfil from "./src/pages/Perfil"
 import Microfone from "./src/pages/Microfone"
+import Planos from "./src/pages/Planos"
 import QuemSomos from "./src/pages/QuemSomos"
 import SignUpAdress from "./src/pages/SignUpFlux/SignUpAdress"
 import ButtonMic from './components/ButtonMic';
@@ -44,11 +45,11 @@ function Tabs() {
       />
 
       <Tab.Screen
-        name="Perfil"
-        component={Perfil}
+        name="Planos"
+        component={Planos}
         options={{
           tabBarIcon: ({ size, color }) => (
-            <Entypo name="user" size={size} color={color} />
+            <Entypo name="feather" size={size} color={color} />
           )
         }}
       />
@@ -65,11 +66,11 @@ function Tabs() {
       />
 
       <Tab.Screen
-        name="Contato"
-        component={Contato}
+        name="Perfil"
+        component={Perfil}
         options={{
           tabBarIcon: ({ size, color }) => (
-            <Entypo name="phone" size={size} color={color} />
+            <Entypo name="user" size={size} color={color} />
           )
         }}
       />
@@ -91,14 +92,14 @@ export default function App() {
 
   return (
     <UserProvider>
-    <NavigationContainer>
-      <Stack.Navigator initialRouteName="Login">
-        <Stack.Screen name="Login" component={Login} options={{ headerShown: false, headerTransparent: true }} />
-        <Stack.Screen name="SignUp" component={SignUp} options={{ headerShown: true, headerTransparent: true, headerTitle: 'Voltar', headerTintColor: '#408241' }} />
-        <Stack.Screen name="SignUpAdress" component={SignUpAdress} options={{ headerShown: true, headerTransparent: true, headerTitle: 'Voltar', headerTintColor: '#408241' }} />
-        <Stack.Screen name="Home" component={Tabs} options={{ headerShown: false, headerTransparent: true, }} />
-      </Stack.Navigator>
-    </NavigationContainer>
+      <NavigationContainer>
+        <Stack.Navigator initialRouteName="Login">
+          <Stack.Screen name="Login" component={Login} options={{ headerShown: false, headerTransparent: true }} />
+          <Stack.Screen name="SignUp" component={SignUp} options={{ headerShown: true, headerTransparent: true, headerTitle: 'Voltar', headerTintColor: '#408241' }} />
+          <Stack.Screen name="SignUpAdress" component={SignUpAdress} options={{ headerShown: true, headerTransparent: true, headerTitle: 'Voltar', headerTintColor: '#408241' }} />
+          <Stack.Screen name="Home" component={Tabs} options={{ headerShown: false, headerTransparent: true, }} />
+        </Stack.Navigator>
+      </NavigationContainer>
     </UserProvider>
   );
 }
