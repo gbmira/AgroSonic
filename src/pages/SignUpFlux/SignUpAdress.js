@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Text, View, Image, StyleSheet, TouchableOpacity, TextInput, KeyboardAvoidingView, Keyboard, Platform, TouchableWithoutFeedback, ActivityIndicator } from 'react-native';
 import { Formik } from 'formik';
 import { client } from '../../../Api/index';
+import * as Yup from 'yup';
 
 export default function SignUpAdress({ navigation, route }) {
 
@@ -62,6 +63,8 @@ export default function SignUpAdress({ navigation, route }) {
             setIsLoading(true);
             const response = await client.post(`/api/auth/signup`, userData);
             console.log("meu response", response.data);
+            navigation.navigate('Login')
+
         } catch (error) {
             console.error(`Erro ao realizar o Cadastro ${error}`);
         } finally {

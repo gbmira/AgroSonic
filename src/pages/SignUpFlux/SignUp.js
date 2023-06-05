@@ -1,23 +1,21 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState } from 'react';
 import {
   Text,
   View,
   Image,
   StyleSheet,
   TouchableOpacity,
-  TouchableHighlight,
   TextInput,
   KeyboardAvoidingView,
   Keyboard,
   ActivityIndicator,
   Platform,
-  TouchableWithoutFeedback
+  TouchableWithoutFeedback,
 } from 'react-native';
 import { Formik } from 'formik';
 import { client } from '../../../Api/index';
 
 export default function SignUp({ navigation }) {
-
   const [isLoading, setIsLoading] = useState(false);
 
   const handleNext = async (values) => {
@@ -25,12 +23,10 @@ export default function SignUp({ navigation }) {
       setIsLoading(true);
       navigation.navigate('SignUpAdress', { values });
     } catch (error) {
-      console.log(error)
-    } finally{
+      console.log(error);
+    } finally {
       setIsLoading(false);
     }
-    
-    
   };
 
   return (
@@ -89,12 +85,12 @@ export default function SignUp({ navigation }) {
                     required
                   />
                   {!isLoading ? (
-                <TouchableOpacity style={styles.button} onPress={handleNext}>
-                  <Text style={styles.buttonText}>Avançar</Text>
-                </TouchableOpacity>
-              ) : (
-                <ActivityIndicator />
-              )}
+                    <TouchableOpacity style={styles.button} onPress={handleSubmit}>
+                      <Text style={styles.buttonText}>Avançar</Text>
+                    </TouchableOpacity>
+                  ) : (
+                    <ActivityIndicator />
+                  )}
                 </View>
               </>
             )}
@@ -126,10 +122,9 @@ const styles = StyleSheet.create({
     textShadowOffset: { width: 0, height: 4 },
     textShadowRadius: 4,
   },
-
   inputArea: {
     width: '100%',
-    alignItems: 'center'
+    alignItems: 'center',
   },
   textGreen: {
     color: '#80c054',
@@ -158,7 +153,6 @@ const styles = StyleSheet.create({
     shadowRadius: 4,
     borderRadius: 3,
   },
-
   button: {
     marginTop: 16,
     backgroundColor: '#408241',
@@ -174,7 +168,6 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.25,
     shadowRadius: 4,
   },
-
   buttonText: {
     color: '#fff',
     textAlign: 'center',
