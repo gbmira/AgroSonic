@@ -1,4 +1,3 @@
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
@@ -6,9 +5,8 @@ import { createStackNavigator } from '@react-navigation/stack';
 import Login from "./src/pages/Login"
 import SignUp from "./src/pages/SignUpFlux/SignUp"
 import Home from "./src/pages/Home"
-import Contato from "./src/pages/Contato"
 import Perfil from "./src/pages/Perfil"
-import Microfone from "./src/pages/Microfone"
+import Grafico from "./src/pages/Grafico"
 import Planos from "./src/pages/Planos"
 import QuemSomos from "./src/pages/QuemSomos"
 import SignUpAdress from "./src/pages/SignUpFlux/SignUpAdress"
@@ -55,8 +53,8 @@ function Tabs() {
       />
 
       <Tab.Screen
-        name="Microfone"
-        component={Microfone}
+        name="Grafico"
+        component={Grafico}
         options={{
           tabBarLabel: "",
           tabBarIcon: ({ state, size, color }) => (

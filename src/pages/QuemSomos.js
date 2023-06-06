@@ -1,4 +1,4 @@
-import { Dimensions, Text, View, Image, StyleSheet, TouchableOpacity, TouchableHighlight, TextInput, ScrollView, SafeAreaView } from 'react-native';
+import { Dimensions, Text, View, Image, StyleSheet, TouchableOpacity, ScrollView, SafeAreaView } from 'react-native';
 
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;

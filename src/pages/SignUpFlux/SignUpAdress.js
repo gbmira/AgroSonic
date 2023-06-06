@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Text, View, Image, StyleSheet, TouchableOpacity, TextInput, KeyboardAvoidingView, Keyboard, Platform, TouchableWithoutFeedback, ActivityIndicator } from 'react-native';
+import { Text, View, StyleSheet, TouchableOpacity, TextInput, KeyboardAvoidingView, Keyboard, Platform, TouchableWithoutFeedback, ActivityIndicator } from 'react-native';
 import { Formik } from 'formik';
 import { client } from '../../../Api/index';
 import * as Yup from 'yup';

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Text, View, Image, StyleSheet, TouchableOpacity, TouchableHighlight, TextInput, Modal, Pressable, SafeAreaView } from 'react-native';
+import { Text, View, StyleSheet, TouchableOpacity, Modal, Pressable, SafeAreaView } from 'react-native';
 
 export default function Planos() {
     const [modalActive, setModalActive] = useState(false)
@@ -12,6 +12,8 @@ export default function Planos() {
             <View style={styles.title}>
                 <Text style={styles.textTitle}>Planos</Text>
             </View>
+
+            <Text>Conheça mais sobre nossos planos!</Text>
 
             <View style={styles.areaPlanos}>
                 <View style={styles.planos}>
@@ -170,6 +172,7 @@ const styles = StyleSheet.create({
 
     title: {
         alignItems: 'center',
+        marginBottom: 5,
     },
 
     textTitle: {

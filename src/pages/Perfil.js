@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import UserContext from '../../contexts/UserContext';
-import { Dimensions, Text, View, Image, StyleSheet, TouchableOpacity, TouchableHighlight, TextInput, ScrollView, SafeAreaView } from 'react-native';
+import { Text, View, Image, StyleSheet, TouchableOpacity, SafeAreaView } from 'react-native';
 import React, { useState, useEffect } from 'react';
 import Icon from 'react-native-vector-icons/MaterialIcons'
 import FontAwesome from 'react-native-vector-icons/FontAwesome'
@@ -21,8 +21,8 @@ export default function Perfil() {
         />
 
         <View style={styles.boxProfile}>
-          <Text style={styles.name}>{nome}</Text>
-          <Text>{email}</Text>
+          <Text style={styles.name}>{nome ? nome : 'Nome de usuário {Null}'}</Text>
+          <Text>{email ? email : 'Email {Null}'}</Text>
         </View>
 
         <TouchableOpacity style={styles.button}>
@@ -32,48 +32,48 @@ export default function Perfil() {
       <Text>Email: {email}</Text> */}
 
         <View style={styles.menu}>
-        <TouchableOpacity style={styles.Menubutton}>
+          <TouchableOpacity style={styles.Menubutton}>
 
-          <Image
-            style={styles.imgIcon}
-            source={require('../assets/images/feedback.png')}
-          />
-          <Text style={styles.texto}>Dar Feedback</Text>
-          <Image
-            style={styles.seta}
-            source={require('../assets/images/seta.png')}
-          />
-
-
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.Menubutton}>
-
-          <Image
-            style={styles.imgIcon}
-            source={require('../assets/images/configuracao.png')}
-          />
-          <Text style={styles.texto}>Configuracoes</Text>
-          <Image
-            style={styles.seta}
-            source={require('../assets/images/seta.png')}
-          />
+            <Image
+              style={styles.imgIcon}
+              source={require('../assets/images/feedback.png')}
+            />
+            <Text style={styles.texto}>Dar Feedback</Text>
+            <Image
+              style={styles.seta}
+              source={require('../assets/images/seta.png')}
+            />
 
 
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.Menubutton}>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.Menubutton}>
 
-          <Image
-            style={styles.imgIcon}
-            source={require('../assets/images/sair.png')}
-          />
-          <Text style={styles.texto} >Sair</Text>
-          <Image
-            style={styles.seta}
-            source={require('../assets/images/seta.png')}
-          />
+            <Image
+              style={styles.imgIcon}
+              source={require('../assets/images/configuracao.png')}
+            />
+            <Text style={styles.texto}>Configuracoes</Text>
+            <Image
+              style={styles.seta}
+              source={require('../assets/images/seta.png')}
+            />
 
 
-        </TouchableOpacity>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.Menubutton} >
+
+            <Image
+              style={styles.imgIcon}
+              source={require('../assets/images/sair.png')}
+            />
+            <Text style={styles.texto} >Sair</Text>
+            <Image
+              style={styles.seta}
+              source={require('../assets/images/seta.png')}
+            />
+
+
+          </TouchableOpacity>
         </View>
       </View>
     </SafeAreaView>
@@ -84,7 +84,8 @@ export default function Perfil() {
 const styles = StyleSheet.create({
   title: {
     fontSize: 30,
-    fontWeight: 'bold'
+    fontWeight: 'bold',
+    top: 20
   },
   container: {
     alignItems: 'center',
