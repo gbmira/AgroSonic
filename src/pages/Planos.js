@@ -204,7 +204,7 @@ const styles = StyleSheet.create({
 
         width: '90%',
 
-        height: '80%',
+        height: 'auto',
 
         backgroundColor: 'white',
 
@@ -238,6 +238,7 @@ const styles = StyleSheet.create({
     textArea: {
 
         paddingLeft: 10,
+        margin: 20
 
     },
 
@@ -506,13 +507,15 @@ const styles = StyleSheet.create({
 
 
     fecharModal : {
-        color: '#FFFF'
+        color: '#FFFF',
     },
 
 
     fechaDetalhe: {
 
         backgroundColor: '#4b954c',
+
+        marginBottom: 20,
 
         padding: 10,
 

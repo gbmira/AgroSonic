@@ -24,7 +24,6 @@ export default function Login({ navigation }) {
     const handleLogin = async (values) => {
         try {
             setIsLoading(true);
-            navigation.navigate("Home");
         } catch (error) {
             console.error(`Erro ao realizar a captação de audio ${error}`);
         } finally {

@@ -470,7 +470,7 @@ const styles = StyleSheet.create({
 
     footer:{
 
-        textAlign: 'center',
+        alignItems: 'center',
 
         width: '100%',
 

@@ -14,15 +14,11 @@ export default function Perfil() {
       
       <View style={styles.container}>
 
-
-        <Image
-          style={styles.ImageHome}
-          source={require('../assets/images/perfil1.png')}
-        />
+      <FontAwesome name="user-circle" size={160} color="#80C053"></FontAwesome >
 
         <View style={styles.boxProfile}>
-          <Text style={styles.name}>{nome ? nome : 'Nome de usuário {Null}'}</Text>
-          <Text>{email ? email : 'Email {Null}'}</Text>
+          <Text style={styles.name}>{nome ? nome : 'Gabriel Mira'}</Text>
+          <Text>{email ? email : 'gbiel3mira@gmail.com'}</Text>
         </View>
 
         <TouchableOpacity style={styles.button}>
@@ -36,9 +32,9 @@ export default function Perfil() {
 
             <Image
               style={styles.imgIcon}
-              source={require('../assets/images/feedback.png')}
+              source={require('../assets/images/configuracao.png')}
             />
-            <Text style={styles.texto}>Dar Feedback</Text>
+            <Text style={styles.texto}>Configurações</Text>
         
 
 
@@ -47,9 +43,9 @@ export default function Perfil() {
 
             <Image
               style={styles.imgIcon}
-              source={require('../assets/images/configuracao.png')}
+              source={require('../assets/images/feedback.png')}
             />
-            <Text style={styles.texto}>Configuracoes</Text>
+            <Text style={styles.texto}>Avalie o app</Text>
         
 
 
@@ -80,6 +76,7 @@ const styles = StyleSheet.create({
   },
   container: {
     alignItems: 'center',
+    justifyContent: 'center',
     flex: 1,
     gap: 30,
     backgroundColor: '#FFF',
@@ -107,16 +104,13 @@ const styles = StyleSheet.create({
   },
 
   name: {
-    fontWeight: 'bold',
-    fontSize: 18
+    fontSize: 18,
+    fontWeight: 'bold'
   },
-  ImageHome: {
-    width: 200,
-    height: 200,
-  },
+
   button: {
-    width: 200,
-    height: 35,
+    width: 160,
+    height: 50,
     backgroundColor: '#4B954C',
     alignItems: 'center',
     justifyContent: 'center',
