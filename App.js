@@ -14,6 +14,7 @@ import ButtonMic from './components/ButtonMic';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Entypo, Feather } from '@expo/vector-icons'
 import { UserProvider } from './contexts/UserContext.js';
+import CadastroAudio from './src/pages/CadastroAudio';
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -91,11 +92,11 @@ export default function App() {
   return (
     <UserProvider>
       <NavigationContainer>
-        <Stack.Navigator initialRouteName="Login">
-          <Stack.Screen name="Login" component={Login} options={{ headerShown: false, headerTransparent: true }} />
-          <Stack.Screen name="SignUp" component={SignUp} options={{ headerShown: true, headerTransparent: true, headerTitle: 'Voltar', headerTintColor: '#408241' }} />
-          <Stack.Screen name="SignUpAdress" component={SignUpAdress} options={{ headerShown: true, headerTransparent: true, headerTitle: 'Voltar', headerTintColor: '#408241' }} />
-          <Stack.Screen name="Home" component={Tabs} options={{ headerShown: false, headerTransparent: true, }} />
+        <Stack.Navigator initialRouteName="Home">
+          <Stack.Screen name="Home" component={Home} options={{ headerShown: false, headerTransparent: true }} />
+          <Stack.Screen name="SignUp" component={SignUp} options={{ headerShown: true, headerTransparent: true, headerTintColor: '#408241', headerBackTitleVisible:false, headerLeftLabelVisible: false }} />
+          <Stack.Screen name="SignUpAdress" component={SignUpAdress} options={{ headerShown: true, headerTransparent: true, headerTintColor: '#408241',  headerBackTitleVisible:false }} />
+          {/* <Stack.Screen name="Home" component={Tabs} options={{ headerShown: false, headerTransparent: true, }} /> */}
         </Stack.Navigator>
       </NavigationContainer>
     </UserProvider>

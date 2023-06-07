@@ -39,10 +39,10 @@ export default function SignUp({ navigation }) {
     >
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
         <View style={styles.content}>
-          <Text style={styles.texts}>
-            Cadastre<Text style={styles.textGreen}>-se</Text>
-          </Text>
-          <Image style={styles.image} source={require('../../assets/images/planta.png')} />
+     
+          <Image style={styles.image} source={require('../../assets/images/logoCadastro.png')} />
+          <Text style={styles.text1}>Agora vamos criar o seu perfil...</Text>
+
           <Formik initialValues={{ nome: '', email: '', telefone: '', cpf: '', senha: '' }} onSubmit={handleNext}>
             {({ handleChange, handleSubmit, values }) => (
               <>
@@ -52,7 +52,7 @@ export default function SignUp({ navigation }) {
                     value={values.nome}
                     style={styles.inputs}
                     placeholder="Nome de usuário"
-                    placeholderTextColor="#408241"
+                    placeholderTextColor="#FFFF"
                     required
                   />
                   <TextInput
@@ -60,22 +60,22 @@ export default function SignUp({ navigation }) {
                     value={values.email}
                     style={styles.inputs}
                     placeholder="E-mail"
-                    placeholderTextColor="#408241"
+                    placeholderTextColor="#FFFF"
                     required
                   />
                   <TextInput
                     onChangeText={handleChange('cpf')}
                     value={values.cpf}
                     style={styles.inputs}
-                    placeholder="Codigo Documento"
-                    placeholderTextColor="#408241"
+                    placeholder="CPF"
+                    placeholderTextColor="#FFFF"
                   />
                   <TextInput
                     onChangeText={handleChange('telefone')}
                     value={values.telefone}
                     style={styles.inputs}
                     placeholder="Telefone"
-                    placeholderTextColor="#408241"
+                    placeholderTextColor="#FFFF"
                     required
                   />
                   <TextInput
@@ -84,7 +84,7 @@ export default function SignUp({ navigation }) {
                     value={values.senha}
                     secureTextEntry
                     placeholder="Senha"
-                    placeholderTextColor="#408241"
+                    placeholderTextColor="#FFFF"
                     required
                   />
                   {!isLoading ? (
@@ -108,7 +108,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'center',
-    backgroundColor: '#A8EFAF',
+    backgroundColor: '#FFFF',
   },
   content: {
     flex: 1,
@@ -133,37 +133,57 @@ const styles = StyleSheet.create({
     color: '#80c054',
   },
   image: {
-    width: 202,
-    height: 149.008,
+    marginTop: 30,
+    width: 150,
+    height: 220,
+    marginBottom: 40
+  },
+  text1: {
+    textAlign: "center",
+    color: "#4B4B4B",
+    marginBottom: 30,
+    fontWeight: "700",
+    fontSize: 17,
+    textShadowColor: "rgba(0, 0, 0, 0.15)",
+    textShadowOffset: {
+      width: 0,
+      height: 3,
+    },
+    textShadowRadius: 2,
   },
   inputs: {
-    marginTop: 16,
-    width: 300,
-    textAlign: 'center',
-    height: 55,
-    color: '#408241',
-    backgroundColor: '#A8EFAF',
-    borderRadius: 16.85,
+    marginBottom: 25,
+    textAlign: "center",
+    width: 250,
+    height: 44,
+    color: "white",
+    backgroundColor: "#80C053",
+    borderRadius: '20px',
     borderWidth: 3,
-    borderColor: '#408241',
-    fontSize: 14,
-    shadowColor: '#000',
+    borderColor: "#80C053",
+    fontWeight: "700",
+    fontSize: 12.866,
+    shadowColor: "#000",
     shadowOffset: {
       width: 0,
       height: 4,
     },
-    shadowOpacity: 0.25,
-    shadowRadius: 4,
-    borderRadius: 3,
+   
+   shadowOpacity: 0.25,
+   shadowRadius: 4,
+   elevation: 4, // para adicionar sombra no Android
+   borderRadius: 20,
   },
   button: {
-    marginTop: 16,
-    backgroundColor: '#408241',
-    justifyContent: 'center',
-    width: 200,
-    height: 55,
-    alignItems: 'center',
-    shadowColor: '#000',
+    alignSelf: 'center',
+    justifyContent: "center",
+    width: 100,
+    height: 40,
+    marginBottom: 30,
+    marginTop: 15,
+    borderRadius: 46.85,
+    backgroundColor: "#4B954C",
+    shadowColor: "#000",
     shadowOffset: {
       width: 0,
       height: 4,

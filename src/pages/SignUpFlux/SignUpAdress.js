@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Text, View, StyleSheet, TouchableOpacity, TextInput, KeyboardAvoidingView, Keyboard, Platform, TouchableWithoutFeedback, ActivityIndicator } from 'react-native';
+import { Text, View,Image, StyleSheet, TouchableOpacity, TextInput, KeyboardAvoidingView, Keyboard, Platform, TouchableWithoutFeedback, ActivityIndicator } from 'react-native';
 import { Formik } from 'formik';
 import { client } from '../../../Api/index';
 import * as Yup from 'yup';
@@ -83,7 +83,8 @@ export default function SignUpAdress({ navigation, route }) {
         <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : 'height'} style={styles.container}>
             <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
                 <View style={styles.content}>
-                    <Text style={styles.texts}>Informações Endereço</Text>
+                    <Image style={styles.image} source={require('../../assets/images/iconCasa.png')} />
+                    <Text style={styles.texts}>Informe o seu endereço</Text>
 
                     <Formik initialValues={{ cep: "", localidade: "" }} onSubmit={handleSubmit}>
                         {({ handleChange, handleSubmit, values }) => (
@@ -94,8 +95,8 @@ export default function SignUpAdress({ navigation, route }) {
                                         onBlur={() => handleCEPChange(values.cep)}
                                         value={values.cep || ""} // Certifique-se de que o valor inicial esteja definido ou forneça uma string vazia padrão
                                         style={styles.inputs}
-                                        placeholder="Informe seu cep"
-                                        placeholderTextColor="#408241"
+                                        placeholder="CEP"
+                                        placeholderTextColor="#ffff"
                                         required
                                     />
 
@@ -103,8 +104,8 @@ export default function SignUpAdress({ navigation, route }) {
                                         onChangeText={handleChange("logradouro")}
                                         value={endereco.logradouro}
                                         style={styles.inputs}
-                                        placeholder="Logradouro"
-                                        placeholderTextColor="#408241"
+                                        placeholder="Endereço"
+                                        placeholderTextColor="#ffff"
                                         editable={false}
                                         required
                                     />
@@ -114,7 +115,7 @@ export default function SignUpAdress({ navigation, route }) {
                                         value={endereco.bairro}
                                         style={styles.inputs}
                                         placeholder="Bairro"
-                                        placeholderTextColor="#408241"
+                                        placeholderTextColor="#ffff"
                                         editable={false}
                                         required
                                     />
@@ -123,8 +124,8 @@ export default function SignUpAdress({ navigation, route }) {
                                         onChangeText={handleChange("uf")}
                                         value={endereco.uf}
                                         style={styles.inputs}
-                                        placeholder="Distrito Federal (UF)"
-                                        placeholderTextColor="#408241"
+                                        placeholder="Estado"
+                                        placeholderTextColor="#ffff"
                                         editable={false}
                                         required
                                     />
@@ -150,22 +151,26 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         alignItems: 'center',
-        backgroundColor: '#A8EFAF',
+        backgroundColor: '#FFFF',
     },
     content: {
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
     },
+    image: {
+        marginTop: 30,
+        width: 200,
+        height: 190,
+        marginBottom: 40
+      },
     texts: {
-        fontSize: 30,
-        color: '#4B954C',
-        fontWeight: 'bold',
-        fontStyle: 'normal',
-        lineHeight: 60,
-        textShadowColor: 'rgba(0, 0, 0, 0.15)',
-        textShadowOffset: { width: 0, height: 4 },
-        textShadowRadius: 4,
+        textAlign: "center",
+        color: "#4B4B4B",
+        marginBottom: 30,
+        fontWeight: "700",
+        fontSize: 17,
+
     },
     inputArea: {
         width: '100%',
@@ -175,33 +180,38 @@ const styles = StyleSheet.create({
         color: '#80c054',
     },
     inputs: {
-        marginTop: 16,
-        width: 300,
-        textAlign: 'center',
-        height: 55,
-        color: '#408241',
-        backgroundColor: '#A8EFAF',
-        borderRadius: 16.85,
+        marginBottom: 25,
+        textAlign: "center",
+        width: 250,
+        height: 44,
+        color: "white",
+        backgroundColor: "#80C053",
+        borderRadius: '20px',
         borderWidth: 3,
-        borderColor: '#408241',
-        fontSize: 14,
-        shadowColor: '#000',
+        borderColor: "#80C053",
+        fontWeight: "700",
+        fontSize: 12.866,
+        shadowColor: "#000",
         shadowOffset: {
             width: 0,
             height: 4,
         },
+
         shadowOpacity: 0.25,
         shadowRadius: 4,
-        borderRadius: 3,
+        elevation: 4, // para adicionar sombra no Android
+        borderRadius: 20,
     },
     button: {
-        marginTop: 16,
-        backgroundColor: '#408241',
-        justifyContent: 'center',
-        width: 200,
-        height: 55,
-        alignItems: 'center',
-        shadowColor: '#000',
+        alignSelf: 'center',
+        justifyContent: "center",
+        width: 100,
+        height: 40,
+        marginBottom: 30,
+        marginTop: 15,
+        borderRadius: 46.85,
+        backgroundColor: "#4B954C",
+        shadowColor: "#000",
         shadowOffset: {
             width: 0,
             height: 4,

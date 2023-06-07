@@ -11,13 +11,13 @@ export default function Perfil() {
 
   return (
     <SafeAreaView style={styles.safeArea}>
+      
       <View style={styles.container}>
-        <Text style={styles.title}>Profile</Text>
 
 
         <Image
           style={styles.ImageHome}
-          source={require('../assets/images/perfil.png')}
+          source={require('../assets/images/perfil1.png')}
         />
 
         <View style={styles.boxProfile}>
@@ -39,10 +39,7 @@ export default function Perfil() {
               source={require('../assets/images/feedback.png')}
             />
             <Text style={styles.texto}>Dar Feedback</Text>
-            <Image
-              style={styles.seta}
-              source={require('../assets/images/seta.png')}
-            />
+        
 
 
           </TouchableOpacity>
@@ -53,10 +50,7 @@ export default function Perfil() {
               source={require('../assets/images/configuracao.png')}
             />
             <Text style={styles.texto}>Configuracoes</Text>
-            <Image
-              style={styles.seta}
-              source={require('../assets/images/seta.png')}
-            />
+        
 
 
           </TouchableOpacity>
@@ -67,10 +61,7 @@ export default function Perfil() {
               source={require('../assets/images/sair.png')}
             />
             <Text style={styles.texto} >Sair</Text>
-            <Image
-              style={styles.seta}
-              source={require('../assets/images/seta.png')}
-            />
+        
 
 
           </TouchableOpacity>
@@ -103,6 +94,8 @@ const styles = StyleSheet.create({
 
   },
   boxProfile: {
+    textAlign: 'center',
+    width: '100%',
     alignItems: 'center',
     gap: 5
   },
@@ -123,8 +116,8 @@ const styles = StyleSheet.create({
   },
   button: {
     width: 200,
-    height: 30,
-    backgroundColor: '#4CAF50',
+    height: 35,
+    backgroundColor: '#4B954C',
     alignItems: 'center',
     justifyContent: 'center',
     borderRadius: 50,
@@ -136,12 +129,13 @@ const styles = StyleSheet.create({
   },
 
   Menubutton: {
-    width: '85%',
-    height: 65,
-    backgroundColor: '#F4F4F4',
+    width: '65%',
+    height: 50,
+    backgroundColor: '#80C053',
     flexDirection: 'row',
     alignItems: 'center',
-    gap: 10,
+    gap: 20,
+    marginBottom:10,
     padding: 10,
     borderRadius: 50,
     justifyContent: 'space-between'
@@ -149,8 +143,8 @@ const styles = StyleSheet.create({
   imgIcon: {
     marginRight: 15,
 
-    width: 60,
-    height: 60
+    width: 40,
+    height: 40
   },
   seta: {
     left: 0,
@@ -158,7 +152,11 @@ const styles = StyleSheet.create({
     height: 30
   },
   texto: {
-    width: 100,
+    width: 200,
+    right: 30,
     textAlign: 'center',
+    color: '#FFFF',
+    fontWeight: '700'
+    
   }
 })

@@ -1,4 +1,4 @@
-import { Dimensions, Text, View, Image, StyleSheet,  ScrollView, SafeAreaView } from 'react-native';
+import { Dimensions, TouchableOpacity, Text, View, Image, StyleSheet, ScrollView, SafeAreaView } from 'react-native';
 import React, { useState, useEffect } from 'react';
 import Icon from 'react-native-vector-icons/MaterialIcons'
 import FontAwesome from 'react-native-vector-icons/FontAwesome'
@@ -9,143 +9,91 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
 
-export default function Home() {
-
+export default function Home({ navigation }) {
 
   return (
     <SafeAreaView style={styles.safeArea}>
-      <ScrollView contentContainerStyle={styles.container}>
+      <ScrollView contentContainerStyle={styles.scroll}>
 
-        <Image
-          style={styles.ImageHome}
-          source={require('../assets/images/agricola.jpg')}
-        />
 
-        <View style={styles.initialTexts}>
+        <View style={styles.box}>
+          <View style={styles.container}>
+            <Text style={styles.textoBox}>Configure aqui um novo monitoramento do plantio</Text>
+            <View style={styles.flexbox}>
+              <TouchableOpacity
+              onPress={navigation.navigate('CadastroAudio')}>
 
-          <Text style={styles.mainText}>
-            Ficou muito mais preciso e fácil poder cuidar de nossas{' '}
-            <Text style={styles.textGreen}>plantas!</Text>
-          </Text>
+                
+                <Image
+                  style={styles.imageH}
+                  source={require("../assets/images/mic.png")}>
+                </Image>
+              </TouchableOpacity>
 
-          <Text style={styles.texts}>
-            A <Text style={styles.textAgro}>Agro</Text>
-            <Text style={styles.textSonic}>Sonic</Text> foi criada com objetivo de
-            maximizar as produções agrícolas verticais e <Text style={styles.decorationLine}>reduzir desperdícios.</Text>
-            Utilizando tecnologias como inteligência artificial (IA) generativa,
-            internet das coisas (IoT) e microfones ultrassônicos, a empresa
-            realiza o <Text style={styles.decorationLine}>mapeamento sonoro</Text> de espécies cultivadas.
-          </Text>
 
-          <Text style={styles.texts}>
-            Estudos realizados pela universidade de Tel Aviv em Israel mostraram
-            que pés de tomate e tabaco emitem padrões sonoros, que são medidos em
-            kilohertz, os sons refletem sua saúde. Plantios saudáveis podem gerar
-            até 2 estalos por hora, enquanto plantios desnutridos e desidratados
-            podem gerar de 20 a 40 estalos por hora.
-          </Text>
 
-          <Text style={styles.texts}>
-            Através de nosso mapeamento podemos auxiliar na identificação de
-            problemas invisíveis a olho nu, que afetam a qualidade, o período de
-            desenvolvimento e o desperdício de alimentos que poderiam ser
-            destinados a áreas com escassez.
-          </Text>
-
-          <Text style={styles.texts}>
-            Nosso processo de aprendizado de máquina, usando classificação e redes
-            neurais, é utilizado para treinar modelos que analisam os sons das
-            plantas e fornecem <Text style={styles.decorationLine}>indicações sobre as necessidades do cultivo.</Text>
-          </Text>
-
-        </View>
-
-        <View style={styles.greenBackground}>
-          <Text style={styles.texts2}>A <Text style={styles.textAgro}>Agro</Text><Text style={styles.textSonic}>Sonic</Text> foi criada com objetivo de maximizar as produções agrícolas verticais e reduzir desperdícios. Utilizando tecnologias como inteligência artificial (IA) generativa, internet das coisas (IoT) e microfones ultrassônicos, a empresa realiza o mapeamento sonoro de espécies cultivadas.</Text>
-        </View>
-
-        <View style={styles.iconParts}>
-
-          <View style={styles.mainTextIcon}>
-            <View style={styles.textContainer}>
-              <Text style={styles.choose}>
-                Por que nos <Text style={styles.textBG}>escolher?</Text>
-              </Text>
             </View>
-            <FontAwesome name="hand-o-left" size={30} color="#000" />
+            <Text style={styles.t3}>Continue regando regularmente</Text>
+
+          </View>
+          <View style={styles.container}>
+            <Text style={styles.textoBox}>Média semanal do Cultivo</Text>
+            <View style={styles.flexbox}>
+              <View>
+                <Image
+                  style={styles.imageH}
+                  source={require("../assets/images/plantaHome.png")}>
+                </Image>
+              </View>
+              <View>
+                <Text style={styles.t1}>Status:</Text>
+                <Text style={styles.t2}>Saudavel</Text>
+                <Text style={styles.t3}>Continue regando regularmente</Text>
+              </View>
+            </View>
           </View>
 
-          <View style={styles.iconPart1}>
-            <Icon name="computer" size={45} color="#000"></Icon>
-            <Text style={styles.texts3icon}>
-            <Text style={styles.decorationLine}>Sistema automatizado</Text>, seguro, simples e Inteligente!
-            </Text>
+          <View style={styles.container}>
+            <Text style={styles.textoBox}>Acompanhe o status do seu plantio</Text>
+            <View style={styles.flexbox}>
+              <View>
+                <Image
+                  style={styles.imageH}
+                  source={require("../assets/images/velocimetro.png")}>
+                </Image>
+              </View>
+
+            </View>
           </View>
 
-          <View style={styles.iconPart2}>
-            <FontAwesome name="mobile-phone" size={45} color="#000"></FontAwesome>
-            <Text style={styles.texts3icon}>
-              Acesso e <Text style={styles.decorationLine}>mobilidade</Text> para receber avisos sobre sua plantação de qualquer lugar.
-            </Text>
-          </View>
 
-          <View style={styles.iconPart3}>
-            <Entypo name="bar-graph" size={45} color="#000"></Entypo>
-            <Text style={styles.texts3icon}>
-            <Text style={styles.decorationLine}>Gráficos atualizados</Text> e de fácil entendimento!
-            </Text>
-          </View>
 
-          <View style={styles.iconPart4}>
-            <Icon name="search" size={45} color="#000"></Icon>
-            <Text style={styles.texts3icon}>
-              Controle, eficácia, <Text style={styles.decorationLine}>pesquisa e desenvolvimento.</Text>
-            </Text>
+          <View style={styles.container}>
+            <Text style={styles.textoBox}>Média semanal do Cultivo</Text>
+            <View style={styles.flexColumn}>
+              <View style={styles.flexbox1}>
+                <Image
+                  style={styles.softIcon}
+                  source={require("../assets/images/gota.png")}>
+                </Image>
+                <Text style={styles.textoFinal}>Aumente o nível de água</Text>
+              </View>
+
+            </View>
+            <View style={styles.flexColumn}>
+              <View style={styles.flexbox1}>
+                <Image
+                  style={styles.softIcon}
+                  source={require("../assets/images/estresse.png")}>
+                </Image>
+                <Text style={styles.textoFinal}>Plantio sob estresse</Text>
+              </View>
+
+            </View>
           </View>
 
         </View>
 
-        <View style={styles.greyBackground}>
-          <View style={styles.iconGreyBG}>
-            <MaterialCommunityIcons
-              name="clock-fast"
-              size={45}
-              color="green"></MaterialCommunityIcons>
-            <Text style={styles.textIconGrey}>Tudo em tempo real!</Text>
-          </View>
-
-          <View style={styles.iconGreyBG}>
-            <Icon name="attach-money" size={45} color="green"></Icon>
-            <Text style={styles.textIconGrey}>Preço acessível</Text>
-          </View>
-
-          <View style={styles.iconGreyBG}>
-            <Entypo name="leaf" size={45} color="green"></Entypo>
-            <Text style={styles.textIconGrey}>Suas plantações saudáveis</Text>
-          </View>
-        </View>
-
-        <View style={styles.finalTexts}>
-          <Text style={styles.texts3}>
-            Em 2020, mais de <Text style={styles.decorationLine}>800 milhões de pessoas</Text> estavam com fome, 2,4 bilhões
-            de pessoas estavam inseguras alimentarmente e milhões de crianças
-            sofriam de retardo de crescimento e caquexia.
-          </Text>
-
-          <Text style={styles.texts3}>
-            A escassez de alimentos é agravada por mudanças climáticas, mal
-            gerenciamento de safras e desigualdades sociais.
-          </Text>
-
-          <Text style={styles.texts3}>
-            É necessário promover o desenvolvimento da agricultura sustentável e
-            reduzir desperdícios, afinal combater a fome é uma questão de justiça
-            social e desenvolvimento econômico do país.
-          </Text>
-        </View>
-
-
-        <Image style={styles.imagePlanta} source={require('../assets/images/plantafone.jpg')} />
 
       </ScrollView>
     </SafeAreaView>
@@ -154,226 +102,69 @@ export default function Home() {
 
 const styles = StyleSheet.create({
 
+  softIcon: {
+  },
+
+  box: {
+    marginTop: 50,
+    flex: 1,
+    justifyContent: 'center',
+    gap: 40,
+    alignItems: 'center'
+
+
+  },
+  textoBox: {
+    textAlign: "center",
+    color: "#4B4B4B",
+    fontWeight: "700",
+    fontSize: 17,
+
+  },
+  textoFinal: {
+    paddingLeft: 40,
+    alignSelf: 'center'
+
+
+  },
+  flexbox1: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+
+  container: {
+    backgroundColor: "#f3f0f0",
+    alignItems: 'center',
+    padding: 12,
+    width: '95%',
+    justifyContent: 'center',
+    borderRadius: 20
+  },
+  t1: {
+    fontSize: 35,
+  },
+  t2: {
+    color: "#80C053",
+    fontSize: 43,
+    fontWeight: 'bold'
+
+  },
+
+
+  flexbox: {
+    width: '100%',
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginTop: 20
+  },
+
   safeArea: {
     flex: 1,
     backgroundColor: 'white', // Cor branca com 50% de opacidade
   },
 
-  container: {
-    alignItems: 'center',
-    backgroundColor: '#FFFFFF',
-    justifyContent: 'center',
-    flexGrow: 1,
-  },
-
-  ImageHome: {
-    width: windowWidth * 1,
-    height: windowHeight * 0.3,
-    marginBottom: 10,
-  },
-
-
-  initialTexts: {
-    flex: 1,
-    width: '90%',
-    margin: 16,
-    alignItems: 'center',
-    justifyContent: 'center'
-  },
-
-  mainText: {
-    fontSize: 27,
-    fontStyle: 'normal',
-    textAlign: 'center',
-    fontWeight: 'bold',
-    lineHeight: 27,
-    color: 'black',
-    textShadowColor: 'rgba(0, 0, 0, 0.15)',
-    textShadowOffset: { width: 0, height: 4 },
-    textShadowRadius: 4,
-  },
-
-  textGreen: {
-    color: '#408241',
-  },
-
-  texts: {
-    marginTop: 20,
-    textAlign: 'center',
-    fontSize: 16,
-    width: '90%',
-    color: 'black',
-  },
-
-  greenBackground: {
-    width: '100%',
-    alignItems: 'center',
-    marginTop: 20,
-    marginBottom: 20,
-    justifyContent: 'center',
-    height: 200,
-    backgroundColor: '#356136',
-    shadowColor: "#000",
-    shadowOffset: {
-      width: 0,
-      height: 4,
-    },
-    shadowOpacity: 0.50,
-    shadowRadius: 4,
-  },
-
-  texts2: {
-    textAlign: 'center',
-    fontSize: 16,
-    width: '90%',
-    color: 'white',
-  },
-
-  iconParts: {
-    width: '80%',
-    margin: 16,
-    justifyContent: 'center',
-    alignItems: 'center',
-    gap: 50
-  },
-
-  mainTextIcon: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    fontWeight: 'bold',
-  },
-
-  textContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
-
-  choose: {
-    fontSize: 27,
-    fontStyle: 'normal',
-    textAlign: 'center',
-    fontWeight: 'bold',
-    marginRight: 8,
-    lineHeight: 27,
-    color: 'black',
-    textShadowColor: 'rgba(0, 0, 0, 0.15)',
-    textShadowOffset: { width: 0, height: 4 },
-    textShadowRadius: 4,
-  },
-
-  textBG: {
-    backgroundColor: '#80c054',
-  },
-
-  texts3icon: {
-    textAlign: 'center',
-    padding: 20,
-    fontSize: 16,
-    width: '90%',
-    color: 'black',
-  },
-
-
-  iconPart1: {
-    flexDirection: "row",
-    alignItems: 'center',
-    justifyContent: 'space-around'
-  },
-
-  iconPart2: {
-    flexDirection: "row",
-    alignItems: 'center',
-    justifyContent: 'space-around'
-  },
-
-  iconPart3: {
-    flexDirection: "row",
-    alignItems: 'center',
-    justifyContent: 'space-around'
-  },
-
-  iconPart4: {
-    flexDirection: "row",
-    alignItems: 'center',
-    justifyContent: 'space-around'
-  },
-
-  textAgro: {
-    color: '#4b954c',
-    fontWeight: 'bold',
-  },
-
-  textSonic: {
-    color: '#80c054',
-    fontWeight: 'bold',
-  },
-
-  greyBackground: {
-    width: '100%',
-    marginTop: 30,
-    backgroundColor: '#C8C8C8',
-    alignItems: 'center',
-    justifyContent: 'center',
-    height: 560,
-    gap: 40,
-    shadowColor: "#000",
-    shadowOffset: {
-      width: 0,
-      height: -4,
-    },
-    shadowOpacity: 0.35,
-    shadowRadius: 4,
-  },
-
-  iconGreyBG: {
-    alignItems: 'center',
-    justifyContent: 'center',
-    width: '70%',
-    height: 128,
-    gap: 5,
-    backgroundColor: '#FFF',
-    shadowColor: '#000',
-    shadowOffset: {
-      width: 0,
-      height: 4,
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 4,
-    borderRadius: 20,
-  },
-
-  textIconGrey: {
-    fontSize: 16,
-    color: 'black',
-    alignItems: 'center',
-    justifyContent: 'center',
-    fontWeight: 'bold',
-  },
-
-  finalTexts: {
-    width: '80%',
-    margin: 16,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-
-  decorationLine:{
-    textDecorationLine: 'underline',
-    textDecorationColor: 'green',
-  },
-
-  texts3: {
-    textAlign: 'center',
-    padding: 10,
-    fontSize: 16,
-    width: '90%',
-    color: 'black',
-  },
-
-  imagePlanta: {
-    width: windowWidth * 1,
-    height: windowHeight * 0.3,
-  },
 
 });
