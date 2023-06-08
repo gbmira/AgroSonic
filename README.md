@@ -5,4 +5,4 @@ App criado utilizando React Native + Expo + Javascript
 Lista de endpoints consumidos (Backend, Java):
 1 - "/signup"
 2 - "/signin"
-
+3 - "/buscarCEP"
